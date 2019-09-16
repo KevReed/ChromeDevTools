@@ -67,7 +67,7 @@ before_build:
 - ps: Push-AppveyorArtifact "dotnetinstall.log"
 - nuget restore source\MasterDevs.ChromeDevTools.sln
 - dotnet restore source\ChromeDevTools\MasterDevs.ChromeDevTools.Core.csproj
-- dotnet pack source\ChromeDevTools\MasterDevs.ChromeDevTools.Core.csproj --version %APPVEYOR_BUILD_VERSION%
+- dotnet pack source\ChromeDevTools\MasterDevs.ChromeDevTools.Core.csproj -p:PackageVersion=$env:APPVEYOR_BUILD_VERSION
 build:
   project: source\MasterDevs.ChromeDevTools.sln
   publish_nuget: true
